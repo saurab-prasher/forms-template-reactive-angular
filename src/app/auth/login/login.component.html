@@ -43,7 +43,7 @@
     Invalid password entered - must be at least 6 characters long.
   </p>
 </form> -->
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <h2>Login</h2>
 
   <div class="control-row">
@@ -69,4 +69,11 @@
 
     <button class="button">Login</button>
   </div>
+
+  <p *ngIf="emailIsInvalid" class="control-error">
+    Please enter a valid email address
+  </p>
+  <p *ngIf="passwordIsInvalid" class="control-error">
+    Please enter a valid password (with atleast 6 characters long)
+  </p>
 </form>
